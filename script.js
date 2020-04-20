@@ -99,9 +99,13 @@ document.getElementById('gm').addEventListener('click', () => {
   }
 });
 
-
+const links = document.querySelectorAll('.nav-links a');
 for (let i = 0; i < cards[0].length; i++) {
   document.getElementById(cards[0][i]).addEventListener('click', () => {
+    links.forEach((el) => {
+      el.style.textDecoration = 'none';
+    });
+    document.getElementById(`${cards[0][i]}l`).style.textDecoration = 'underline';
     onCard = true;
     if (onCard === true) document.getElementById('stat').style.display = 'none';
     if (gameStared === false) {
@@ -185,7 +189,7 @@ for (let i = 0; i < cards[0].length; i++) {
     }
   });
 }
-const links = document.querySelectorAll('.nav-links a');
+
 links.forEach((el) => {
   el.addEventListener('click', (e) => {
     if (el.innerHTML !== 'Main Page') e.preventDefault();
@@ -232,7 +236,6 @@ links.forEach((el) => {
         }
       }
     }
-    el.parentElement.parenElement.style.display = 'none';
   });
 });
 const gameButton = document.getElementById('return_button');
